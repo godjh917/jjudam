@@ -17,7 +17,4 @@ get_template_part( 'library/register', 'footerBar' );
 get_template_part( 'library/register', 'modals' );
 get_template_part( 'library/register', 'zmesJS' );
 get_template_part( 'library/adminpage','gtm' ); 
-
-
-
 ?>
