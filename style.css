@@ -1,0 +1,377 @@
+/*
+Theme Name: Salient Child Theme
+Description: This is a custom child theme for Salient
+Theme URI:   https://themeforest.net/item/salient-responsive-multipurpose-theme/4363266
+Author: ThemeNectar
+Author URI:  https://themeforest.net/user/themenectar
+Template: salient
+Version: 1.0
+*/
+
+:lang(ko),
+body {
+  word-break: keep-all !important;
+}
+
+/*
+** zmes modified
+*/
+.wpb_tabs_nav span {
+  font-size: 20px;
+}
+
+.wpcf7 span.wpcf7-list-item {
+  margin-left: 0 !important;
+}
+
+.wpcf7 input[type="submit"] {
+  background-color: #061AB6 !important;
+}
+
+.wpcf7 input[type="text"],
+.wpcf7 input[type="tel"] {
+  border: 1px solid #999 !important;
+}
+
+.wpcf7 select {
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+/* 1. cf7 validation */
+.wpcf7 .wpcf7-not-valid-tip {
+  display: none !important;
+}
+
+.wpcf7 form.invalid .wpcf7-not-valid-tip {
+  display: block !important;
+}
+
+/* 2. footer 고정바를 위한 패딩 확보 */
+@media only screen and (max-width: 999px) {
+  #footer_container_cf7 {
+    display: none;
+  }
+
+  body #footer-outer {
+    padding-bottom: 50px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #footer_container_fullwidth {
+    display: none;
+  }
+
+  body #footer-outer {
+    padding-bottom: 179px;
+  }
+}
+
+/* 3. footer 고정바 mobile용 편집 시작 */
+@media only screen and (max-width: 999px) {
+  #footer_container_fullwidth {
+    background: #666;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    z-index: 9900;
+    margin-bottom: 0;
+  }
+
+  #footer_container_fullwidth .containerbox {
+    display: flex;
+    padding: 0;
+    font-weight: 500;
+    font-size: 1em;
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+#footer_container_fullwidth .containerbox .inner_left,
+#footer_container_fullwidth .containerbox .inner_right {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}
+
+#footer_container_fullwidth .containerbox .inner_left a,
+#footer_container_fullwidth .containerbox .inner_right a {
+  color: #fff !important;
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 50px;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+#footer_container_fullwidth .containerbox .inner_left {
+  width: 40%;
+}
+
+#footer_container_fullwidth .containerbox .inner_right {
+  width: 60%;
+  background: #061AB6;
+}
+
+#footer_container_fullwidth .containerbox .inner_right a:hover {
+  background: #fcf3ed;
+  color: #000 !important;
+}
+
+@media (hover: none) {
+  #footer_container_fullwidth .containerbox .inner_right a:hover {
+    background-color: #000;
+    color: #fff !important;
+  }
+}
+
+/* footer 고정바 mobile용 편집 끝 */
+
+/* 4. footer 고정바 PC용 CF7 편집 시작 */
+@media only screen and (min-width: 1000px) {
+  #footer_container_cf7 {
+    box-shadow: 0 -4px 10px -4px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #footer_container_cf7 div.containerbox {
+    width: calc(1550px - 20vw);
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 13px;
+    flex-wrap: nowrap;
+  }
+
+  #footer_container_cf7 div.containerbox>div.inputbox {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+
+  #footer_container_cf7 div.containerbox.acceptance>div.inputbox {
+    flex-grow: 0;
+    flex-basis: auto;
+  }
+
+  #footer_container_cf7 div.containerbox>div.submitbox {
+    position: relative;
+    width: 145px;
+  }
+
+  #footer_container_cf7 div.containerbox>div.submitbox input[type=submit] {
+    border-radius: 3px !important;
+    padding: 15px 35px;
+  }
+
+  #footer_container_cf7 div.containerbox>div.submitbox .wpcf7-spinner {
+    position: absolute;
+    right: -48px;
+    bottom: 0;
+  }
+
+  #footer_container_cf7 div.containerbox p {
+    padding-bottom: 0 !important;
+  }
+}
+
+/* footer 고정바 CF7 편집 끝 */
+
+/* 5. modal popup 시작 */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html:has(dialog[open]:modal) {
+  overflow: hidden;
+}
+
+dialog {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.5), 0 10px 10px rgba(0, 0, 0, 0.5);
+  border: 0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  width: 70vw;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+@media only screen and (max-width: 690px) {
+  dialog {
+    width: 80vw;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  dialog {
+    width: 90vw;
+  }
+
+  dialog#dialog_policy p {
+    font-size: 13px;
+    line-height: 19px;
+  }
+}
+
+dialog#dialog_contact {
+  margin-bottom: auto;
+  margin-top: auto;
+  border-radius: 10px;
+}
+
+@media only screen and (min-width: 691px) {
+  dialog#dialog_contact {
+    width: 60vw;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  dialog#dialog_contact {
+    width: 40vw;
+  }
+}
+
+dialog#dialog_contact div.containers {
+  height: auto;
+  padding-bottom: 30px;
+}
+
+dialog#dialog_contact p {
+  padding-bottom: 1.5em;
+}
+
+dialog#dialog_contact input[type=text],
+dialog#dialog_contact input[type=tel] {
+  font-size: 16px !important;
+}
+
+dialog#dialog_contact input[type=submit] {
+  padding: 15px 35px !important;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+}
+
+dialog[open] {
+  animation: slide-in 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@media only screen and (max-width: 1300px) {
+  dialog div.space {
+    height: calc(100px - 10px) !important;
+  }
+
+  dialog div.containers {
+    margin-top: calc(100px - 10px) !important;
+  }
+}
+
+@media only screen and (max-width: 999px) {
+  dialog div.space {
+    height: calc(100px - 20px) !important;
+  }
+
+  dialog div.containers {
+    margin-top: calc(100px - 20px) !important;
+  }
+}
+
+dialog div.space {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 100px;
+}
+
+dialog div.containers {
+  position: relative;
+  height: 70vh;
+  height: 70dvh;
+  padding: 0px 30px 15px;
+  overflow: auto;
+  margin-top: 100px;
+}
+
+@media only screen and (max-width: 480px) {
+  dialog div.containers {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+dialog div.containers h2 {
+  position: fixed;
+  top: 30px;
+}
+
+dialog div.containers span.close {
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 999;
+}
+
+dialog div.containers span.close i {
+  font-size: 36px;
+}
+
+dialog div.containers p {
+  font-size: 15px;
+  line-height: 22px;
+  padding-bottom: 10px;
+}
+
+/* modal popup 끝 */
+
+/* 모바일(999px 이하)에서 햄버거 아이콘 숨김 */
+@media (max-width: 999px) {
+
+  .mobile-menu-toggle,
+  .slide-out-widget-area-toggle,
+  .ocm-trigger,
+  .off-canvas-menu-toggle,
+  .menu-trigger {
+    display: none !important;
+  }
+}
